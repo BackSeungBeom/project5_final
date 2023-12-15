@@ -1,4 +1,4 @@
-package com.myapp;
+package com.myapp.board;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-
 @RequestMapping(value="/")
 public class BoardController {
     @Autowired
@@ -16,7 +15,7 @@ public class BoardController {
 
     @RequestMapping("/")
     public String home(){
-        return "index";
+        return "redirect:login/login";
     }
 
     @RequestMapping(value ="/board/list", method = RequestMethod.GET)
