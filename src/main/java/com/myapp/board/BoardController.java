@@ -31,7 +31,8 @@ public class BoardController {
 
     @RequestMapping(value ="/board/addok", method = RequestMethod.POST)
     public String addPostOk(BoardVO vo){
-        return "redirect:list";
+        boardService.insertBoard(vo);
+        return "redirect:/board/list";
     }
 
     @RequestMapping(value = "/board/editform/{id}", method = RequestMethod.GET)
@@ -50,11 +51,13 @@ public class BoardController {
 
     @RequestMapping(value = "/board/editok", method = RequestMethod.POST)
     public String editPostOk(BoardVO vo){
+        boardService.updateBoard(vo);
         return "redirect:list";
     }
 
     @RequestMapping(value = "/board/deleteok/{id}", method = RequestMethod.GET)
     public String deletePostOk(@PathVariable("id") int id){
+        boardService.deleteBoard(id);
         return "redirect:../list";
     }
 }
